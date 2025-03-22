@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "src": "^/$",
+      "dest": "/home.html"
+    },
+    {
+      "src": "^/index.html$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/(.*)$",
+      "dest": "/index.html"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
