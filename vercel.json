@@ -2,19 +2,16 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/home.html"
+      "destination": "/index.html"
     },
     {
-      "source": "/index.html",
-      "destination": "/index.html"
+      "source": "/app.html",
+      "destination": "/app.html"
     },
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "routes": [
-    { "src": "/", "dest": "/home.html" }
   ],
   "cleanUrls": true,
   "trailingSlash": false
