@@ -67,7 +67,7 @@
   </div>
 
   <!-- Uncomment if you want to debug user agent -->
-  <!-- <p class="user-agent" id="userAgent"></p> -->
+  <p class="user-agent" id="userAgent"></p>
 
   <script>
     const isInstagram = navigator.userAgent.includes("Instagram");
@@ -77,9 +77,9 @@
 
     if (!isInstagram) {
       // Open index.html in a new tab if not in Instagram
-      window.open("/index.html", "_blank");
+      // window.open("/index.html", "_blank");
       // Optionally redirect the current tab
-      window.location.href = "https://wajed.vercel.app"; // Keeps original tab on home.html
+      // window.location.href = "https://wajed.vercel.app"; // Keeps original tab on home.html
     } else {
       // Show button container only in Instagram
       buttonContainer.style.display = "flex";
