@@ -1,56 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>Wajed bac</title>
-  <!-- The `react-native-web` recommended style reset -->
+  <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
   <style id="expo-reset">
+    /* These styles make the body full-height */
     html, body { height: 100%; }
+    /* These styles disable body scrolling if you are using <ScrollView> */
     body { overflow: hidden; }
+    /* These styles make the root element full-height */
     #root { display: flex; height: 100%; flex: 1; }
   </style>
   <meta name="theme-color" content="#6464ED">
 <link rel="shortcut icon" href="/favicon.ico" /></head>
+
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <!-- The root element for your Expo app. -->
   <div id="root"></div>
-  <script>
-    const targetUrl = "https://wajed.vercel.app"; // Replace with your actual domain
-
-    // Simulate "shouldStartLoadWith" logic for Instagram
-    if (navigator.userAgent.includes("Instagram")) {
-      const ua = navigator.userAgent.toLowerCase();
-      const isIOS = /iphone|ipad|ipod/.test(ua);
-      const isAndroid = /android/.test(ua);
-
-      // "Intercept" the loading and try external browsers
-      if (isIOS) {
-        // Try Chrome first
-        window.location.href = "googlechrome://" + targetUrl.replace("https://", "");
-        setTimeout(() => {
-          // Fallback to Safari (default browser)
-          window.location.href = targetUrl;
-          setTimeout(() => {
-            alert("Please open this link in Safari or Chrome: Tap the three dots (...) and select your browser.");
-          }, 500);
-        }, 500);
-      } else if (isAndroid) {
-        // Try Chrome
-        window.location.href = "googlechrome://" + targetUrl.replace("https://", "");
-        setTimeout(() => {
-          // Try Firefox
-          window.location.href = "firefox://" + targetUrl.replace("https://", "");
-          setTimeout(() => {
-            // Fallback to default browser with prompt
-            alert("Please open this link in your browser: Tap the three dots (...) and choose Chrome, Firefox, or another browser.");
-            window.location.href = targetUrl;
-          }, 500);
-        }, 500);
-      }
-    }
-  </script>
 <script src="_expo/static/js/web/index-dea5eebdd9987e65a02058106dd15c31.js" defer></script>
 </body>
+
 </html>
