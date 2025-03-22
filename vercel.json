@@ -13,6 +13,9 @@
       "destination": "/index.html"
     }
   ],
+  "routes": [
+    { "src": "/", "dest": "/home.html" }
+  ],
   "cleanUrls": true,
   "trailingSlash": false
 }
