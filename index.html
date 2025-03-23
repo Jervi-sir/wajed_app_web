@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wajed</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
+  <meta charset="utf-8" />
+  <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Wajed bac</title>
+  <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+  <style id="expo-reset">
+    /* These styles make the body full-height */
+    html, body { height: 100%; }
+    /* These styles disable body scrolling if you are using <ScrollView> */
+    body { overflow: hidden; }
+    /* These styles make the root element full-height */
+    #root { display: flex; height: 100%; flex: 1; }
+  </style>
+  <style id="expo-instagram">
+    .body {
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -52,39 +62,51 @@
       .user-agent { font-size: 10px; }
     }
   </style>
-</head>
+  <meta name="theme-color" content="#6464ED">
+<link rel="shortcut icon" href="/favicon.ico" /></head>
+
 <body>
-  <img src="./icon.png" alt="App Icon" class="icon" />
+  <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <!-- The root element for your Expo app. -->
+  <div id="root" style="display: none;"></div>
+  <!-- Custom content for Instagram -->
   <div class="button-container" id="buttonContainer">
-    <div href="https://wajed.vercel.app" target="_blank" class="button" download>How to open the app</div>
-    <img src="./how-to-open-the-app.jpg" />
+    <img src="./icon.png" alt="App Icon" class="icon" />
+    <div class="button" onclick="window.open('https://wajed.vercel.app/app.html', '_blank')">How to open the app</div>
+    <img src="./how-to-open-the-app.jpg" alt="Instructions" />
     <div style="display: flex; justify-content: space-between;">
       <h4 style="flex: 3; text-align: center;">or Install the app from</h4>
     </div>
     <a href="https://play.google.com/store/apps/details?id=com.wajed.wajed" target="_blank">
-      <img style="width: 200px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Google_Play_Store_badge_FR.svg/2560px-Google_Play_Store_badge_FR.svg.png" />
+      <img style="width: 200px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Google_Play_Store_badge_FR.svg/2560px-Google_Play_Store_badge_FR.svg.png" alt="Get it on Google Play" />
     </a>
   </div>
 
-  <!-- Uncomment if you want to debug user agent -->
-  <p class="user-agent" id="userAgent"></p>
 
   <script>
     const isInstagram = navigator.userAgent.includes("Instagram");
+    const rootElement = document.getElementById("root");
     const buttonContainer = document.getElementById("buttonContainer");
-    // const userAgentElement = document.getElementById("userAgent");
-    // userAgentElement.textContent = "User Agent: " + navigator.userAgent;
 
-    if (!isInstagram) {
-      // Open index.html in a new tab if not in Instagram
-      window.open("/app.html", "_blank");
-      // Optionally redirect the current tab
-      window.location.href = "https://wajed.vercel.app/app.html"; // Keeps original tab on home.html
-    } else {
-      // Show button container only in Instagram
+    if (isInstagram) {
+      // Show button container, hide root for Instagram
       buttonContainer.style.display = "flex";
-      console.log("Detected Instagram, showing button container on home.html");
+      rootElement.style.display = "none";
+      console.log("Detected Instagram, showing button container");
+    } else {
+      // Show root, hide button container for non-Instagram
+      rootElement.style.display = "flex";
+      buttonContainer.style.display = "none";
+      // No need to redirect, let the app load normally in #root
+      console.log("Not Instagram, loading app in root");
     }
   </script>
+
+
+<script src="_expo/static/js/web/index-0004f1dc7e3dbd7eb904798135089968.js" defer></script>
 </body>
+
 </html>
