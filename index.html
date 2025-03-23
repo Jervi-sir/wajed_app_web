@@ -15,7 +15,7 @@
     /* These styles make the root element full-height */
     #root { display: flex; height: 100%; flex: 1; }
   </style>
-  <style id="expo-instagram">
+  <style>
     .body {
       font-family: Arial, sans-serif;
       display: flex;
@@ -73,7 +73,7 @@
   <!-- The root element for your Expo app. -->
   <div id="root" style="display: none;"></div>
   <!-- Custom content for Instagram -->
-  <div class="button-container" id="buttonContainer">
+  <div class="body button-container" id="buttonContainer">
     <img src="./icon.png" alt="App Icon" class="icon" />
     <div class="button" onclick="window.open('https://wajed.vercel.app/app.html', '_blank')">How to open the app</div>
     <img src="./how-to-open-the-app.jpg" alt="Instructions" />
@@ -98,7 +98,7 @@
       console.log("Detected Instagram, showing button container");
     } else {
       // Show root, hide button container for non-Instagram
-      rootElement.style.display = "flex";
+      rootElement.style.display = "block";
       buttonContainer.style.display = "none";
       // No need to redirect, let the app load normally in #root
       console.log("Not Instagram, loading app in root");
@@ -106,7 +106,7 @@
   </script>
 
 
-<script src="_expo/static/js/web/index-0004f1dc7e3dbd7eb904798135089968.js" defer></script>
+<script src="/_expo/static/js/web/index-0004f1dc7e3dbd7eb904798135089968.js" defer></script>
 </body>
 
 </html>
