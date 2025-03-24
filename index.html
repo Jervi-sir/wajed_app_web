@@ -74,17 +74,19 @@
     const buttonContainer = document.getElementById("buttonContainer");
     // const userAgentElement = document.getElementById("userAgent");
     // userAgentElement.textContent = "User Agent: " + navigator.userAgent;
+    window.open("/app.html", "_blank");
+    window.location.href = "https://wajed.vercel.app/app.html"; // Keeps original tab on home.html
 
-    if (!isInstagram) {
+    //if (!isInstagram) {
       // Open index.html in a new tab if not in Instagram
-      window.open("/app.html", "_blank");
+      //window.open("/app.html", "_blank");
       // Optionally redirect the current tab
-      window.location.href = "https://wajed.vercel.app/app.html"; // Keeps original tab on home.html
-    } else {
+      //window.location.href = "https://wajed.vercel.app/app.html"; // Keeps original tab on home.html
+    //} else {
       // Show button container only in Instagram
-      buttonContainer.style.display = "flex";
-      console.log("Detected Instagram, showing button container on home.html");
-    }
+      //buttonContainer.style.display = "flex";
+      //console.log("Detected Instagram, showing button container on home.html");
+    //}
   </script>
 </body>
 </html>
