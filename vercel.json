@@ -1,20 +1,26 @@
 {
+  "builds": [
+    {
+      "src": "web-build/**/*",
+      "use": "@vercel/static"
+    }
+  ],
   "rewrites": [
     {
       "source": "/",
-      "destination": "/index.html"
+      "destination": "/web-build/index.html"
     },
     {
       "source": "/app.html",
-      "destination": "/index.html"
+      "destination": "/web-build/index.html"
     },
     {
       "source": "/app",
-      "destination": "/index.html"
+      "destination": "/web-build/index.html"
     },
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/web-build/index.html"
     }
   ],
   "cleanUrls": true,
