@@ -3,18 +3,16 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>Wajed bac</title>
-  <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+  <!-- The `react-native-web` recommended style reset -->
   <style id="expo-reset">
-    /* These styles make the body full-height */
     html, body { height: 100%; }
-    /* These styles disable body scrolling if you are using <ScrollView> */
     body { overflow: hidden; }
-    /* These styles make the root element full-height */
     #root { display: flex; height: 100%; flex: 1; }
   </style>
+  <!-- Optional zoom for mobile -->
   <!-- <style>
     @media (max-width: 768px) {
       html {
@@ -22,17 +20,48 @@
       }
     }
   </style> -->
-  <meta name="theme-color" content="#6464ED">
+  <meta name="theme-color" content="#6464ED" />
+  <!-- Script to force full browser on page load -->
+  <script>
+    (function() {
+      // Run immediately on page load
+      const ua = navigator.userAgent.toLowerCase();
+      const isIOS = /iphone|ipad|ipod/.test(ua);
+      const isAndroid = /android/.test(ua);
+      const isInAppBrowser = (
+        ua.includes('instagram') ||
+        ua.includes('fban') || ua.includes('fbav') || // Facebook
+        ua.includes('twitter') || // Twitter/X
+        ua.includes('tiktok') || // TikTok
+        ua.includes('wv') || // Generic WebView indicator
+        (ua.includes('safari') === false && ua.includes('chrome') === false && ua.includes('firefox') === false)
+      );
+
+      if (isInAppBrowser) {
+        const currentUrl = window.location.href; // Current URL of the site
+        let externalUrl = currentUrl;
+
+        if (isIOS) {
+          // iOS: Use x-safari- to open in Safari
+          externalUrl = 'x-safari-' + currentUrl;
+        } else if (isAndroid) {
+          // Android: No special scheme needed, just redirect (system opens default browser)
+          externalUrl = currentUrl;
+        }
+
+        // Redirect to the same URL in the default browser
+        window.location.href = externalUrl;
+      }
+    })();
+  </script>
 <link rel="shortcut icon" href="/favicon.ico" /></head>
 
 <body>
-  <!-- Use static rendering with Expo Router to support running without JavaScript. -->
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <!-- The root element for your Expo app. -->
   <div id="root"></div>
-<script src="/_expo/static/js/web/index-39a5c5138ef0631668b1a3d89a84e42d.js" defer></script>
+<script src="/_expo/static/js/web/index-86997c0786776d035638bc0f40a6677f.js" defer></script>
 </body>
 
 </html>
