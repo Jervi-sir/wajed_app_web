@@ -4,22 +4,19 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+
   <title>Wajed bac</title>
   <!-- The `react-native-web` recommended style reset -->
   <style id="expo-reset">
     html, body { height: 100%; }
     body { overflow: hidden; }
     #root { display: flex; height: 100%; flex: 1; }
-  </style>
-  <!-- Optional zoom for mobile -->
-  <!-- <style>
-    @media (max-width: 768px) {
-      html {
-        zoom: 0.85; /* Zooms out to 85% on mobile */
-      }
+    * {
+      touch-action: manipulation; /* Disables pinch-to-zoom and double-tap zoom */
     }
-  </style> -->
+  </style>
+ 
   <meta name="theme-color" content="#6464ED" />
   <!-- Script to force full browser on page load -->
   <script>
